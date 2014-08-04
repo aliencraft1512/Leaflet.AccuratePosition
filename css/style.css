@@ -37,7 +37,7 @@ body {
 }
 
 #status.progressing li:last-child {
-	background-image: url(progress.gif);
+	background-image: url(../images/progress.gif);
 	background-size: 20px 20px;
 	background-repeat: no-repeat;
 	background-position: right 15px center;
