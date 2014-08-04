@@ -12,7 +12,7 @@ A better way to do this is to use navigator.geolocation.watchPosition() that fir
 
 ## Usage
 
-´´´javascript
+```javascript
 var map = L.map('map').setView([51.505, -0.09], 13);
 
 function onAccuratePositionProgress (e) {
@@ -37,7 +37,7 @@ map.findAccuratePosition({
     maxWait: 15000, // defaults to 10000
     desiredAccuracy: 30 // defaults to 20
 });
-´´´
+```
 
 This will attempt to find the device location with an accuracy of at least 30 meters in max. 15 seconds.
 
