@@ -10,6 +10,12 @@ map.locate() relies on navigator.geolocation.getCurrentPosition() to return the 
 
 A better way to do this is to use navigator.geolocation.watchPosition() that fires a callback every time the location changes (and seems to include accuracy improvements). After several callbacks the greatest possible accuracy can be expected, a fact this plugin works upon.
 
+## Demo
+
+Check out the demo at https://m165437.github.io/Leaflet.AccuratePosition
+
+![QR Code](https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fm165437.github.io%2FLeaflet.AccuratePosition%2F&chs=180x180&choe=UTF-8&chld=L|2 "Scan QR code with mobile phone")
+
 ## Usage
 
 ```javascript
