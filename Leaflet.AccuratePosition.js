@@ -18,9 +18,9 @@ L.Map.include({
 		var that = this;
 
 		if (!navigator.geolocation) {
-			geolocationError({
+			this._handleAccuratePositionError({
 				code: 0,
-				message: 'Geolocation error: Geolocation not supported.'
+				message: 'Geolocation not supported.'
 			});
 			return this;
 		}
