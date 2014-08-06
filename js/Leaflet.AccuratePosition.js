@@ -15,12 +15,11 @@ L.Map.include({
 	},
 
 	findAccuratePosition: function (options) {
-		var that = this;
 
 		if (!navigator.geolocation) {
-			geolocationError({
+			this._handleAccuratePositionError({
 				code: 0,
-				message: 'Geolocation error: Geolocation not supported.'
+				message: 'Geolocation not supported.'
 			});
 			return this;
 		}
@@ -32,7 +31,8 @@ L.Map.include({
 			this._accuratePositionOptions.timeout = this._accuratePositionOptions.maxWait;
 
 		var onResponse = L.bind(this._checkAccuratePosition, this),
-			onError = L.bind(this._handleAccuratePositionError, this);
+			onError = L.bind(this._handleAccuratePositionError, this),
+			onTimeout = L.bind(this._handleAccuratePositionTimeout, this);
 
 		this._accuratePositionWatchId = navigator.geolocation.watchPosition(
 			onResponse,
@@ -40,12 +40,23 @@ L.Map.include({
 			this._accuratePositionOptions);
 
 		this._accuratePositionTimerId = setTimeout(
-			function () {
-				navigator.geolocation.clearWatch(that._accuratePositionWatchId);
-				that._handleAccuratePositionResponse(that._lastCheckedAccuratePosition);
-				return that;
-			},
+			onTimeout,
 			this._accuratePositionOptions.maxWait);
+	},
+
+	_handleAccuratePositionTimeout: function() {
+		navigator.geolocation.clearWatch(this._accuratePositionWatchId);
+
+		if (typeof this._lastCheckedAccuratePosition !== 'undefined') {
+			this._handleAccuratePositionResponse(this._lastCheckedAccuratePosition);
+		} else {
+			this._handleAccuratePositionError({
+				code: 3,
+				message: 'Timeout expired'
+			});
+		}
+
+		return this;
 	},
 
 	_cleanUpAccuratePositioning: function () {
