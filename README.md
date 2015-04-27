@@ -12,7 +12,8 @@ A better way to do this is to use navigator.geolocation.watchPosition() that fir
 
 ## Demo
 
-Check out the demo at https://m165437.github.io/Leaflet.AccuratePosition
+Check out the demo at https://m165437.github.io/Leaflet.AccuratePosition  
+and how it's done at https://github.com/M165437/Leaflet.AccuratePosition/tree/gh-pages
 
 ![QR Code](https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Fm165437.github.io%2FLeaflet.AccuratePosition%2F&chs=180x180&choe=UTF-8&chld=L|2 "Scan QR code with mobile phone")
 
