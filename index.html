@@ -54,8 +54,8 @@
 		map.on('accuratepositionerror', onAccuratePositionError);
 
 		map.findAccuratePosition({
-			maxWait: 10000,
-			desiredAccuracy: 20
+			maxWait: 20000,
+			desiredAccuracy: 0.25
 		});
 	</script>
 </body>
