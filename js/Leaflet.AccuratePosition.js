@@ -11,7 +11,7 @@
 L.Map.include({
 	_defaultAccuratePositionOptions: {
 		maxWait: 10000,
-		desiredAccuracy: 20
+		desiredAccuracy: 0.25
 	},
 
 	findAccuratePosition: function (options) {
