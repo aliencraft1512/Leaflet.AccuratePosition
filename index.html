@@ -30,7 +30,7 @@
 		}
 
 		function onAccuratePositionProgress (e) {
-			var message = 'Progressing … (Accuracy: ' + e.accuracy + ')';
+			var message = 'Progressing … (Accuracy: ' + e.accuracy + 'Desired Accuracy: ' + e.desiredAccuracy + ')';
 			addStatus(message, 'progressing');
 		}
 
@@ -57,6 +57,7 @@
 			maxWait: 20000,
 			desiredAccuracy: 0.25
 		});
+		
 	</script>
 </body>
 </html>
